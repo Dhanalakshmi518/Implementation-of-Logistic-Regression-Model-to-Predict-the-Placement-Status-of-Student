@@ -23,41 +23,52 @@ Developed by: M.P.Dhanalakshmi
 RegisterNumber:212225040063
 import pandas as pd
 import numpy as np
-dfspd.read_(sv('/content/Placement_Data.csv')
+df=pd.read_csv('/content/Placement_Data.csv')
+df
 df1=df.copy()
 df1
-df1=df1.drop(['s1_no', 'salary'], axis=1)
-df1.isnul1().sum()
+df1=df1.drop(['sl_no','salary'],axis=1)
+df1.isnull().sum()
 df1.duplicated().sum()
 df1
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
-df1['gender']=le.fit_transform(dfI['gender'])df1['ssc_b']=le.fit_transform(df1['ssc_b'])df1['hsc_b'J=le.fit_transform(dfI['hsc_b"1)df1['hsc_s'1=le.fit_transform(df1['hsc s'1)
-dfI['degree_t']=le.fit_transform(df1['degree_t'1)
-df1['workex']=le.fit_transform(df1['workex']1)
-df1['specialisation'J=le. fit_transform(dfI['specialisation'I)
-dfI['status']=le.fit_transform(df1['status'1)
+df1['gender']=le.fit_transform(df1['gender'])
+df1['ssc_b']=le.fit_transform(df1['ssc_b'])
+df1['hsc_b']=le.fit_transform(df1['hsc_b'])
+df1['hsc_s']=le.fit_transform(df1['hsc_s'])
+df1['degree_t']=le.fit_transform(df1['degree_t'])
+df1['workex']=le.fit_transform(df1['workex'])
+df1['specialisation']=le.fit_transform(df1['specialisation'])
+df1['status']=le.fit_transform(df1['status'])
 df1
-x=df1.iloc[:, :-1]
-y=df1['status'1
-from sklearn.model selection import train test split
-xtrain, x_test, y_train, y_test=train_test_split(x, y, test_size=0.2, random_state=0)
+x=df1.iloc[:,:-1]
+x
+y=df1['status']
+y
+from sklearn.model_selection import train_test_split
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=0)
 from sklearn.linear_model import LogisticRegression
 model=LogisticRegression(solver="liblinear")
-213
-model.fit(x_train, y_train)
-y pred=model.predict(x test)
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-accuracy=accuracy_score(y_test, ysred)confusion=confusion_matrix(y_test, y_pred)cr=classification_report(y_test, y_pred)print("Accuracy Score:", accuracy)
-print("\nConfusion Matrix:1n", confusion)print("Inclassification Report:1n", cr)from sklearn import metrics
-cndisplaymetrics.confusionatrixoisplay(confusion_matrixrconfusion, display_labels-('true', 'false
-cn_display.plot()  
+model.fit(x_train,y_train)
+y_pred=model.predict(x_test)
+from sklearn.metrics import accuracy_score,confusion_matrix,classification_report
+accuracy=accuracy_score(y_test,y_pred)
+confusion=confusion_matrix(y_test,y_pred)
+cr=classification_report(y_test,y_pred)
+print("Accuracy Score:",accuracy)
+print("\nConfusion Matrix:\n",confusion)
+print("\nClassification Report:\n",cr)
+from sklearn import metrics
+cn_display=metrics.ConfusionMatrixDisplay(confusion_matrix=confusion,display_labels=['true','false'])
+cn_display.plot()
 */
 ```
 
 ## Output:
-<img width="832" height="580" alt="WhatsApp Image 2026-05-11 at 4 07 27 PM" src="https://github.com/user-attachments/assets/9f20a154-c50f-4c7e-a38c-7cc87a82b75e" />
-<img width="588" height="344" alt="WhatsApp Image 2026-05-11 at 4 07 38 PM" src="https://github.com/user-attachments/assets/17d58e6b-a689-4d36-9f96-296e61dcddf0" />
+<img width="536" height="326" alt="Screenshot 2026-05-13 151830" src="https://github.com/user-attachments/assets/0f050bde-2e7e-4932-9740-928cc29fbb2f" />
+<img width="819" height="581" alt="Screenshot 2026-05-13 151846" src="https://github.com/user-attachments/assets/ca318240-1478-400e-87a0-a1ee05e19873" />
+
 
 
 
